@@ -117,7 +117,7 @@ class SQLitePlugin(object):
 
         def wrapper(*args, **kwargs):
             # Connect to the database
-            db = sqlite3.connect(dbfile)
+            db = sqlite3.connect("file:bottle?mode=memory&cache=shared", uri=True, isolation_level=None)
             # Enable write ahead logging
             db.execute('PRAGMA journal_mode = WAL;')
             # Enable foreign keys
