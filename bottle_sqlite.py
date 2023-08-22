@@ -118,11 +118,14 @@ class SQLitePlugin(object):
         def wrapper(*args, **kwargs):
             # Connect to the database
             db = sqlite3.connect(dbfile)
+            # Enable write ahead logging
+            db.execute('PRAGMA journal_mode = WAL;')
+            # Enable foreign keys
+            db.execute('PRAGMA foreign_keys = ON;')
             # set text factory
             db.text_factory = text_factory
             # This enables column access by name: row['column_name']
-            if dictrows:
-                db.row_factory = sqlite3.Row
+            db.row_factory = sqlite3.Row
             # Create user functions, aggregates and collations
             for name, value in functions.items():
                 db.create_function(name, *value)
