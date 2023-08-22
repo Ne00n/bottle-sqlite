@@ -19,14 +19,9 @@ Once installed, all you have to do is to add a ``db`` keyword argument
 Installation
 ===============
 
-Install with one of the following commands::
+Install with the following commands::
 
-    $ pip install bottle-sqlite
-    $ easy_install bottle-sqlite
-
-or download the latest version from github::
-
-    $ git clone git://github.com/bottlepy/bottle-sqlite.git
+    $ git clone git://github.com/Ne00n/bottle-sqlite.git
     $ cd bottle-sqlite
     $ python setup.py install
 
